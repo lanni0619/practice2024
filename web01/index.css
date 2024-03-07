@@ -1,0 +1,121 @@
+/* 設定width再設定margin或padding時不會改變block的寬度 */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+  }
+
+#imgtop {
+    display: block;
+    margin: auto;
+}
+
+#container {
+    position: relative;
+}
+
+#nav {
+    position: absolute;
+    left: 5%;
+    top: 100px;
+    width: 18%;
+}
+
+#section1 {
+    position: absolute;
+    left: 5%;
+    right: 10%;
+    width: 85%;
+    height: 80px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+ul{
+  list-style-type: none;
+  border-style: 1px solid black;
+}
+
+li {
+  float: left;
+}
+ul li a {
+  display: flex;
+  font-size: 18px;
+  text-decoration: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: black;
+}
+
+#section2 {
+    position:absolute;
+    left: 25%;
+    top: 100px;
+    width: 65%;
+    border-left: 1px solid black;
+    padding-left: 30px;
+}
+
+h1 {
+    text-align: left;
+    margin: auto;
+    color: darkblue;
+  }
+  
+#intro {
+    text-align: center;
+    color:black;
+    padding-bottom:10px;
+    font-size: 24px;
+    margin: 15px;
+  }
+  
+#intro a:link {
+    color: black;
+}
+#intro a:visited{
+    color: grey;
+}
+#intro a:hover{
+  font-size: 30px;
+  color: red;
+  text-decoration: underline;
+}
+#intro a:active{
+  color: yellowgreen;
+}
+  
+  .imgCover{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  #content{
+    background-color: white;
+    padding-left: 60px;
+    padding-right: 60px;
+    text-align: justify;
+    max-width: 1200px;
+    margin: auto;
+    font-size: 18px;
+    text-indent: 35px;
+  }
+  #content p{
+    background-color: white;
+  }
+  #content span{
+    background-color: white;
+  }
+  #content h2{
+    background-color: white;
+  }
+
+#purpleIrises{
+    color:purple;
+    text-shadow: 1px 1px;
+}
+  
