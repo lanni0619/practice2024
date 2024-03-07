@@ -36,7 +36,13 @@ function exportBtn() {
     let num = 1;
 
     for (var x of listText) {
-        exportText = exportText + '(' + num.toString() + ')' + x.children[0].textContent + " ";
+        if(x.children[0].className=='important'){
+            exportText = exportText + '(' + num.toString() + ')*' + x.children[0].textContent + "* ";
+        }else if(x.children[0].className=='urgent'){
+            exportText = exportText + '(' + num.toString() + ')**' + x.children[0].textContent + "** ";
+        }else{
+            exportText = exportText + '(' + num.toString() + ')' + x.children[0].textContent + " ";
+        }
         num = num + 1;
     }
     alert(exportText);
