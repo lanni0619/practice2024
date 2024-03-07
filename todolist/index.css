@@ -1,0 +1,95 @@
+body {
+    background-color: darkslateblue;
+    /* background-repeat: none; */
+    background-size: cover;
+}
+
+#h1Block {
+    color: whitesmoke;
+    font-size: larger;
+    font-family: Fantasy;
+    font-weight: bolder;
+    /* font-style: italic; */
+    text-decoration: underline;
+    text-align: center;
+}
+
+#inputBlock {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#input {
+    width: 75%;
+    height: 24px;
+    font-size: 24px;
+    border-radius: 10px;
+}
+
+.inputBtn {
+    border: 0px;
+    font-size: 24px;
+    color: black;
+    border: 3px solid darkred;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+.inputBtn:hover {
+    cursor: pointer;
+    background-color: darkred;
+    color: white;
+}
+
+.exportBtn {
+    border: 0px;
+    font-size: 24px;
+    color: black;
+    border: 3px solid darkgreen;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+.exportBtn:hover {
+    cursor: pointer;
+    background-color: darkgreen;
+    color: white;
+}
+
+#outputBlock {
+    font-size: 18px;
+    color: white;
+    display: block;
+    width: 80%;
+    margin-left: 7%;
+    margin-right: 10%;
+    align-items: center;
+}
+
+#list {
+    list-style-type: none;
+}
+
+#list li {
+    padding: 5px;
+    border-bottom: 1px dashed whitesmoke;
+    display: flex;
+}
+
+#list span {
+    width: 90%;
+}
+
+#list button {
+    border-radius: 5px;
+    border: 0 px;
+    width: 10%;
+    border: 3px solid black;
+}
+
+#list button:hover {
+    cursor: pointer;
+    background-color: rgb(36, 35, 35);
+    color: white;
+}
