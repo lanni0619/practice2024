@@ -5,11 +5,23 @@ function inputBtn() {
     var elemLi = document.createElement('li');
     var elemBtn = document.createElement('button')
 
+    let prior = document.getElementById('priorSelect');
+    let index = prior.selectedIndex;
+    let priorText = prior.options[index].text;
+
     elemSpan.textContent = listText;
     elemBtn.textContent = "Del";
     list.append(elemLi);
     elemLi.append(elemSpan);
     elemLi.append(elemBtn);
+
+    if(priorText=="Important"){
+        elemSpan.className = 'important';
+    }
+
+    if(priorText=="Urgent"){
+        elemSpan.className = 'urgent';
+    }
 
     elemBtn.onclick = delBtn;
 }
