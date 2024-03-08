@@ -27,6 +27,18 @@ body {
     border-radius: 10px;
 }
 
+.redFontClass {
+    color: red;
+}
+
+.orangeFontClass {
+    color: orange;
+}
+
+.blackFontClass {
+    color: black;
+}
+
 .inputBtn {
     border: 0px;
     font-size: 24px;
@@ -84,7 +96,7 @@ body {
 #list button {
     border-radius: 5px;
     border: 0 px;
-    width: 10%;
+    width: 15%;
     border: 3px solid black;
 }
 
