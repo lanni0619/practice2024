@@ -3,17 +3,29 @@ function inputBtn() {
     var list = document.getElementById("list");
     var elemSpan = document.createElement('span');
     var elemLi = document.createElement('li');
-    var elemBtn = document.createElement('button')
+    var elemBtn = document.createElement('button');
+    var doneBtn = document.createElement('button');
+    var statusText = document.createElement('span');
 
     let prior = document.getElementById('priorSelect');
     let index = prior.selectedIndex;
     let priorText = prior.options[index].text;
 
     elemSpan.textContent = listText;
+    doneBtn.textContent = 'Done';
     elemBtn.textContent = "Del";
+    statusText.textContent = '(Check)';
+    statusText.style.color = 'lightgreen';
+    statusText.style.display = 'none';
+
     list.append(elemLi);
     elemLi.append(elemSpan);
+    elemLi.append(statusText);
+    elemLi.append(doneBtn);
     elemLi.append(elemBtn);
+
+    elemBtn.onclick = delBtn;
+    doneBtn.onclick = statusCheck;
 
     if (priorText == "Important") {
         elemSpan.className = 'important';
@@ -22,8 +34,6 @@ function inputBtn() {
     if (priorText == "Urgent") {
         elemSpan.className = 'urgent';
     }
-
-    elemBtn.onclick = delBtn;
 }
 
 function delBtn() {
@@ -62,5 +72,18 @@ function changeInputColor() {
         default:
             elemInput.className = elemInput.className + 'blackFontClass';
             break;
+    }
+}
+
+function statusCheck(){
+    let x = event.target.textContent;
+    let y = event.target.parentElement;
+    console.log(x);
+    if(event.target.textContent=='Done'){
+        event.target.textContent = 'Undone';
+        event.target.parentElement.children[1].style.display='block';
+    }else if (event.target.textContent=='Undone'){
+        event.target.textContent = 'Done';
+        event.target.parentElement.children[1].style.display='none';
     }
 }

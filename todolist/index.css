@@ -90,13 +90,13 @@ body {
 }
 
 #list span {
-    width: 90%;
+    
 }
 
 #list button {
     border-radius: 5px;
     border: 0 px;
-    width: 15%;
+    width: 20%;
     border: 3px solid black;
 }
 
