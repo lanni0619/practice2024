@@ -1,3 +1,9 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
 body {
     background-color: darkslategray;
     /* background-repeat: none; */
@@ -9,107 +15,131 @@ body {
     font-size: larger;
     font-family: Fantasy;
     font-weight: bolder;
-    /* font-style: italic; */
     text-decoration: underline;
     text-align: center;
 }
 
 #inputBlock {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #input {
-    width: 35%;
-    height: 32px;
-    font-size: 24px;
+    flex: 1;
+    font-size: 20px;
     border-radius: 10px;
+    border: 2px solid black;
 }
 
-.redFontClass {
+#input:focus{
+    border: 5px solid gray;
+}
+
+.redFont {
     color: red;
 }
 
-.orangeFontClass {
+.orangeFont {
     color: orange;
 }
 
-.blackFontClass {
+.blackFont {
     color: black;
 }
 
 .inputBtn {
-    border: 0px;
-    font-size: 24px;
-    color: black;
-    border: 3px solid darkred;
+    border: 2px solid black;
+    font-size: 18px;
     border-radius: 8px;
-    margin: 20px;
+    background-color: darkred;
+    color: white;
+    padding: 1px;
 }
 
 .inputBtn:hover {
+    border: 2px solid darkred;
     cursor: pointer;
-    background-color: darkred;
-    color: white;
+    font-size: 18px;
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+    padding: 1px;
 }
 
 .exportBtn {
-    border: 0px;
-    font-size: 24px;
-    color: black;
-    border: 3px solid blueviolet;
+    border: 2px solid black;
+    font-size: 18px;
+    color: white;
+    background-color:blueviolet;
     border-radius: 8px;
-    margin: 20px;
+    padding: 1px;
 }
 
 .exportBtn:hover {
     cursor: pointer;
-    background-color: blueviolet;
-    color: white;
+    border: 2px solid blueviolet;
+    font-size: 18px;
+    color: black;
+    background-color:white;
+    border-radius: 8px;
+    padding: 1px;
 }
 
 #outputBlock {
-    font-size: 24px;
-    color: white;
-    display: block;
-    width: 36%;
-    margin-left: 30%;
-    margin-right: 10%;
-    align-items: center;
+    width: 400px;
+    margin: auto;
 }
 
-#list {
-    list-style-type: none;
+#list{
+     /* border: 5px solid black; */
 }
 
 #list li {
-    padding: 5px;
-    border-bottom: 1px dashed whitesmoke;
+    list-style-type: none;
     display: flex;
+    justify-content:flex-end;
+    padding: 1px;
+    margin: 15px;
+    background-color: lightblue;
+    border-radius: 5px;
+    /* border: 3px solid black; */
 }
 
-#list span {
-    
+#list li span{
+    flex: 1px;
+    text-align: left;
+    font-size: 18px;
+    padding: 6px;
+    /* border: 1px solid black; */
+}
+
+#list li p{
+    flex: 1px;
+    text-align: left;
+    font-size: 18px;
+    padding: 6px;
+    /* border: 1px solid black; */
 }
 
 #list button {
     border-radius: 5px;
     border: 0 px;
-    width: 20%;
-    border: 3px solid black;
+    font-size: 18px;
+    /* border: 3px solid black; */
+    margin: 5px;
 }
 
 #list button:hover {
     cursor: pointer;
     background-color: rgb(36, 35, 35);
     color: white;
+    font-size: 18px;
 }
 
 /* 新增事件急迫性分類功能 */
 #priorSelect {
-    font-size: 24px;
-    margin: 20px;
+    font-size: 18px;
     border: 3px solid black;
     border-radius: 5px;
 }
@@ -122,10 +152,16 @@ body {
     color: red;
 }
 
-#important {
-    background-color: orange;
+/* 狀態文字 */
+.statusText {
+    display: none;
+    color: green;
 }
 
-#urgent {
-    background-color: red;
+/* 狀態設定按鈕 */
+.doneBtn {
+    background-color: lightblue;
+    border: 0px;
+    color: gray;
+    font-size: 14px;
 }

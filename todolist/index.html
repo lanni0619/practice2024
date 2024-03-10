@@ -15,17 +15,15 @@
     <div id="inputBlock">
         <div class="input-area">
             <input type="text" id="input" placeholder="請輸入待辦事項...">
-            <br>
-            <button onclick="inputBtn()" class="inputBtn">Submit</button>
-            <button onclick="exportBtn()" class="exportBtn">Export</button>
             <select onchange="changeInputColor()" name="" id="priorSelect">
                 <option id="" value="normal">Normal</option>
-                <option id="important" value="important">Important</option>
-                <option id="urgent" value="urgent">Urgent</option>
+                <option id="" value="important">Important</option>
+                <option id="" value="urgent">Urgent</option>
             </select>
+            <button onclick="inputBtn()" class="inputBtn">Submit</button>
+            <button onclick="exportBtn()" class="exportBtn">Export</button>
         </div>
     </div>
-    <hr>
     <div id="outputBlock">
         <ul id="list">
 
