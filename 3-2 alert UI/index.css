@@ -1,0 +1,48 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+#container{
+    width: 500px;
+    margin: 30px auto;
+}
+.alert{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 15px;
+    transition: all 0.5s;
+}
+
+.alert:hover{
+    transform: scale(1.1);
+}
+
+.alert-primary{
+    border-top: 7px solid darkblue;
+    background-color: rgba(0, 0, 139, 0.2);
+}
+
+.alert-success{
+    border-top: 7px solid darkgreen;
+    background-color: rgba(0, 100, 0, 0.3);
+}
+
+.alert-danger{
+    border-top: 7px solid darkred;
+    background-color: rgba(139, 0, 0, 0.3);
+}
+
+.alert-warning{
+    border-top: 7px solid darkorange;
+    background-color: rgba(255, 140, 0, 0.3);
+}
+
+.btn-close{
+    font-size: 24px;
+    border:0px;
+    background-color: transparent;
+    cursor: pointer;
+}
