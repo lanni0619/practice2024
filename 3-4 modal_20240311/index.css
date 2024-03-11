@@ -1,0 +1,76 @@
+/* https://www.w3schools.com/cssref/css_selectors.php */
+/* div > p	Selects all <p> elements where the parent is a <div> element */
+/* div + p Selects the first <p> element that is placed immediately after <div> elements */
+/* p ~ ul	Selects every <ul> element that is preceded by a <p> element */
+/* https://jsfiddle.net/jneobs2d/ */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #D8DEE9;
+    color: black;
+    font-size: system-ui;
+}
+
+button {
+    background-color: black;
+    border: 2px solid #ECEFF4;
+    color: white;
+    font-weight: bolder;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 6px;
+    cursor: pointer;
+}
+
+.modal#login-modal,
+.modal#post-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    padding-top: 10%;
+    width: 0%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow-x: hidden;
+    transition: 0.1s;
+}
+
+.lightbox {
+    border: 2px solid #ECEFF4;
+    border-radius: 10px;
+    background-color: #E5E9F0;
+    width: 300px;
+    height: 240px;
+    margin: auto;
+    align-items: center;
+    padding-left: 2%;
+    padding-top: 2%;
+}
+
+.lightbox>div {
+    font-size: 18px;
+    text-align: left;
+    align-items: center;
+}
+
+.lightbox>input {
+    font-size: 18px;
+    width: 80%;
+    margin-bottom: 1rem;
+}
+
+.lightbox>textarea {
+    font-size: 18px;
+    width: 80%;
+    height: 20%;
+    margin-bottom: 1rem;
+}
+
+.btn-close {
+    position: relative;
+    right: -65%;
+    margin-top: 1%;
+}

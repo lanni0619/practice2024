@@ -1,0 +1,46 @@
+<!-- JavaScript 系列三：練習3 ── modal 互動視窗元件 -->
+<!-- Nord Polar Night配色:https://www.nordtheme.com/docs/colors-and-palettes -->
+<!-- lightbox Ref1 html+css: https://ithelp.ithome.com.tw/m/articles/10333376 -->
+<!-- How TO - CSS/JS Modal https://www.w3schools.com/howto/howto_css_modals.asp-->
+<!-- How TO - Full screen Overlay Navigation https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <button onclick="loginModal()">點我登入帳號</button>
+    <hr>
+    <button onclick="postModal()">點我新增貼文</button>
+    <div class="modal" id="login-modal">
+        <div class="lightbox">
+            <div>帳號：</div>
+            <input type="text" placeholder="請輸入您的信箱帳號">
+            <div>密碼:</div>
+            <input type="password" placeholder="請輸入您的密碼">
+            <div>
+                <button class="btn-close">關閉</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="post-modal">
+        <div class="lightbox">
+            <div>標題：</div>
+            <input type="text" placeholder="上限為10字">
+            <div>內文：</div>
+            <textarea></textarea>
+            <div>
+                <button class="btn-close">關閉</button>
+            </div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>
