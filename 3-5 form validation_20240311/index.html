@@ -1,0 +1,39 @@
+<!-- https://jsfiddle.net/bapf4zk0/8/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="outsideTop">
+        <div class="main">
+            <h1>Create a Taiwan Value Account</h1>
+            <div class="login">
+                <form action="">
+                    <p>用戶暱稱：
+                        <input maxlength="40" type="text" id="name">
+                        <span id="errorName">不能為空白、必須在10字以內</span>
+                    </p>
+                    <p>Email 信箱：
+                        <input type="email" id="email">
+                        <span id="errorEmail"> 帳號需含TW1、不能為空白、必須包含 @ 符號</span>
+                    </p>
+                    <p>密碼：
+                        <input type="password" id="password">
+                        <span id="errorPassword">不能為空白、必須在8字以上、15字以內</span>
+                    </p>
+                    <p><input id="submit" type="button" value="註冊" onclick="Btn()"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>
