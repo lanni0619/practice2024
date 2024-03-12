@@ -1,0 +1,75 @@
+/* The ::after selector inserts something after the content of each selected element(s).
+
+Use the content property to specify the content to insert.
+
+Use the ::before selector to insert something before the content. */
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: #eee;
+}
+
+.container {
+    /* border: 1px solid black; */
+    width: 500px;
+    margin: 5rem auto;
+}
+
+h1 {
+    text-align: center;
+    margin: 0.5rem;
+}
+
+.question {
+    font-size: 1.5rem;
+    padding: 1rem;
+    cursor: pointer;
+    background-color: #3B4252;
+    color: white;
+    box-shadow: 0px 0px 1px rgba(161, 161, 161, 0.5);
+    position: relative;
+
+    &::after {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-top: 2px solid white;
+        border-right: 2px solid white;
+
+        position: absolute;
+        top: 1.6rem;
+        right: 1rem;
+
+        transform: rotate(135deg);
+    }
+
+    &:hover {
+        background-color: #4C566A;
+    }
+}
+
+/* 在js程式碼，會把.arrow-rotate放到跟class(question)一起，因此會控制到toggle圖示 */
+.arrow-rotate {
+    &::after {
+        transform: rotate(-45deg);
+    }
+}
+
+.answer {
+    max-height: 0;
+    padding: 0 10px;
+    overflow: hidden;
+    border: 1px solid rgba(92, 144, 145, 0.3);
+    background-color: #fff;
+    transition: max-height 0.3s ease-out;
+
+    p {
+        font-size: 16px;
+        margin: 10px 0px;
+        color: #777;
+    }
+}
