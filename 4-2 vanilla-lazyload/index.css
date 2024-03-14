@@ -1,0 +1,14 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: darkred;
+}
+
+.lazy {
+    width: 750px;
+    vertical-align: TOP;
+}

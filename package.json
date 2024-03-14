@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "autosize": "^6.0.1"
+    "autosize": "^6.0.1",
+    "vanilla-lazyload": "^17.8.8"
   }
 }
