@@ -14,11 +14,12 @@ let chart1 = new Chart(myChart1, {
         labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'],
         datasets: [{
             label: '股利',
-            data: [4.3, 5, 4.5, 2, 4, 4.2, 4, 5.2, 5.3, 0],
+            data: [4.3, 5, 4.5, 2, 4, 4.2, 4, 5.2, 5.3, 5.4],
             backgroundColor: ['lightgray'],
             borderWidth: 0,
+            hoverBackgroundColor: 'gray',
             hoverBorderWidth: 2,
-            hoverBorderColor: '#A3BE8C',
+            // hoverBorderColor: '#A3BE8C',
         }],
     },
     options: {

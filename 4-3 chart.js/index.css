@@ -4,9 +4,11 @@
     box-sizing: border-box;
 }
 
-.container {
-    /* border: 1px solid black;
-    width: 20%;
-    height: 400px;
-    margin: auto; */
+.container{
+    width:200px;
+    height:360px;
+}
+
+canvas {
+    height: 100%;
 }
