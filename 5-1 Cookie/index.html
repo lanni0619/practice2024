@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Your Age: <input type="text">
+    Your Name: <input type="text">
+    <button onclick="save()">Save</button> -->
+
+    <div id="coverText">
+        <h1>警告︰您即將進入之網頁內容需滿十八歲方可瀏覽。</h1>
+        <span>根據「兒童及少年福利與權益保障法」規定，本網站已於非闔家皆宜之網頁加以標示。若您尚未年滿十八歲，請點選離開。若您已滿十八歲，亦不可將本站之內容派發、傳閱、出售、出租、交給或借予年齡未滿18歲的人士瀏覽，或將本網站內容向該人士出示、播放或放映。
+            您年滿十八歲嗎？</span>
+        <br>
+        <br>
+        <button onclick="location.href='https://www.google.com.tw'">[離開]</button>
+        <button onclick="removeCover()">[是，我已年滿十八歲]</button>
+    </div>
+    <div id='showImg'>
+        <h1>警告蓋板已移除</h1>
+        <img src="https://picsum.photos/600/300?random=1" alt="">
+        <br>
+        <button onclick="resetCookies()">reset</button>
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>

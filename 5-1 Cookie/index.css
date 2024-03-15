@@ -1,0 +1,32 @@
+#coverText {
+    width: 50%;
+    font-size: 20px;
+    color: white;
+    background-color: darkred;
+    position: relative;
+
+    span {
+        color: aliceblue;
+    }
+
+    &.remove {
+        display: none;
+    }
+
+    button {
+        font-size: 18px;
+        font-weight: bolder;
+        color: lightgoldenrodyellow;
+        background-color: darkred;
+        border: 0px;
+        cursor: pointer;
+    }
+}
+
+#showImg {
+    display: none;
+
+    &.show {
+        display: block;
+    }
+}
