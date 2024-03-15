@@ -5,23 +5,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <!-- 據官方文件表示，2024年開始需要申請帳號才能拿到有效的api key啟動這個套件，僅有14天免費 -->
+    <!-- 2024.02.19發現改用cdnjs提供的就可以使用了 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.3/tinymce.min.js"></script>
+
     <title>Document</title>
 </head>
 
 <body>
-    <div class="question">
-        請輸入入住日期
+    <div class="container_question">
+        <label for="">請輸入入住日期</label>
         <input id="datetimepicker1" type="text">
-    </div>
-    <div class="question">
-        請選擇退房時間
+        <br>
+        <label for="">請選擇退房時間</label>
         <input id="datetimepicker2" type="text">
+        <br>
+        <button class="submit" onclick="outputText()">送出</button>
+        <br>
+        <span id="outputText"></span>
     </div>
-    <button class="submit" onclick="outputText()">送出</button>
-    <span id="outputText"></span>
+
+    <div class="container_slick">
+        <div><img src="https://picsum.photos/600/300?random=1" alt=""></div>
+        <div><img src="https://picsum.photos/600/300?random=2" alt=""></div>
+        <div><img src="https://picsum.photos/600/300?random=3" alt=""></div>
+        <div><img src="https://picsum.photos/600/300?random=4" alt=""></div>
+        <div><img src="https://picsum.photos/600/300?random=5" alt=""></div>
+        <div><img src="https://picsum.photos/600/300?random=6" alt=""></div>
+        <div><img src="https://picsum.photos/600/300?random=7" alt=""></div>
+        <div><img src="https://picsum.photos/600/300?random=8" alt=""></div>
+        <div><img src="https://picsum.photos/600/300?random=9" alt=""></div>
+        <div><img src="https://picsum.photos/600/300?random=10" alt=""></div>
+    </div>
+    <div id="container_textEditors">
+        <h1>TinyMCE Quick Start Guide</h1>
+        <form action="" method="post">
+            <textarea id="mytextarea">type...</textarea>
+        </form>
+    </div>
     <script src="./index.js"></script>
 </body>
 
