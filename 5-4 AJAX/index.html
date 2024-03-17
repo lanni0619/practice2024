@@ -1,3 +1,5 @@
+<!-- https://jsfiddle.net/xjmeoyz1/14/ -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,9 +11,37 @@
 </head>
 
 <body>
-    <button onclick="load()">Load Products</button>
+    <button id="load" onclick="load()">Load Products</button>
     <hr>
     <ul id="list"></ul>
+
+    <div class="modal" id="post-modal">
+        <div class="lightbox">
+            <div>
+                <img id="showPhoto" height="200px" width="200px" src="" alt="">
+            </div>
+            <div>
+                <span>title: </span>
+                <span id="showName" style="color: darkgray"></span>
+                <br>
+                <br>
+                <span>category: </span>
+                <span id="showClass" style="color: darkgray"></span>
+                <br>
+                <br>
+                <span>description: </span>
+                <span id="showExplain" style="color: darkgray"></span>
+                <br>
+                <br>
+                <span>Price: </span>
+                <span id="showPrice" style="color: darkgray"></span>
+            </div>
+            <div>
+                <button class="btn-close">Close</button>
+            </div>
+        </div>
+    </div>
+
     <script src="./index.js"></script>
 </body>
 
