@@ -1,6 +1,3 @@
-// fetch('https://fakestoreapi.com/products')
-//     .then(res => res.json())
-//     .then(json => console.log(json))
 let tagUl = document.getElementById('list');
 let postTag = document.querySelector('.modal#post-modal')
 let closePost = document.querySelector('#post-modal .btn-close');
