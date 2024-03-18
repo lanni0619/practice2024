@@ -1,0 +1,52 @@
+<!-- 課程目標 -->
+<!-- 能夠運行 Vue 基本環境 -->
+<!-- 能夠 render state -->
+<!-- HW: https://jsfiddle.net/yz6Lr2ej/11/ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>firstm VUE</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="note">
+            <h3 class="title">
+                {{notes[0].title}}
+                <!-- 請顯示第一個項目的標題 -->
+            </h3>
+            <p class="content">
+                {{notes[0].content}}
+                <!-- 請顯示第一個項目的內容 -->
+            </p>
+        </div>
+        <div class="note">
+            <h3 class="title">
+                {{notes[1].title}}
+                <!-- 請顯示第二個項目的標題 -->
+            </h3>
+            <p class="content">
+                {{notes[1].content}}
+                <!-- 請顯示第二個項目的內容 -->
+            </p>
+        </div>
+        <div class="note">
+            <h3 class="title">
+                {{notes[2].title}}
+                <!-- 請顯示第二個項目的標題 -->
+            </h3>
+            <p class="content">
+                {{notes[2].content}}
+                <!-- 請顯示第二個項目的內容 -->
+            </p>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>
