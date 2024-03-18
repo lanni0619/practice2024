@@ -97,5 +97,8 @@ function loadLocalData() {
     //remember to check local storage at first. Or will be occur some problem
     if (localStorage.getItem('todos')) {
         todos = JSON.parse(localStorage.getItem('todos'));
+        if (todos.length != 0) {
+            alert('import local storage data');
+        }
     }
 }
