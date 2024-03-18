@@ -1,0 +1,42 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+ul {
+    min-width: 450px;
+    max-width: 25%;
+    list-style-type: none;
+    position: relative;
+    margin: auto;
+
+    li {
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
+        background-color: #D8DEE9;
+        border: 3px double #4C566A;
+        border-radius: 10px;
+        padding: 0.2rem;
+        margin-top: 0.5rem;
+
+        span {
+            font-size: 18px;
+            font-weight: bolder;
+            font-family: Arial;
+        }
+
+        button {
+            border: 0px;
+            border-radius: 5px;
+            background-color: #2E3440;
+            color: white;
+            margin: 0 5px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
