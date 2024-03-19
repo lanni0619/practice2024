@@ -1,0 +1,52 @@
+<!-- 課程目標 -->
+<!-- Template Refs: https://vuejs.org/guide/essentials/template-refs -->
+<!-- HW:  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/3.0.20/autosize.min.js"></script>
+    <title>vue for loop</title>
+</head>
+
+<body>
+    <div>
+        <h1>Doogle Keep</h1>
+    </div>
+    <div id="app">
+        <div id="inputPanel">
+            <input type="text" v-model="noteTitle" placeholder="title">
+            <br>
+            <!-- add ref -->
+            <textarea ref="textarea" v-model="noteContent" cols="30" placeholder="content"></textarea>
+            <br>
+            <label for="bgColor">background color: </label>
+            <select v-model="noteColor" id="bgColor">
+                <option value="#BF616A">red</option>
+                <option value="#A3BE8C">green</option>
+                <option value="#88C0D0">blue</option>
+            </select>
+            <br>
+            <button @click="addNote()">add</button>
+        </div>
+        <hr>
+        <div id="outputPanel">
+            <div v-for="(note,index) in notes" class="note" :style="{'background-color':note.color}">
+                <h3 class="title">
+                    {{note.title}}
+                </h3>
+                <p class="content">
+                    {{note.content}}
+                </p>
+                <button class="close-btn" @click="delNote(index)">X</button>
+            </div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!-- 課程目標 -->
+<!-- 使用:style="{{}}"-->
+<!-- HW: https://jsfiddle.net/6sezhu91/8/ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>condition judgement</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <button @click='change'>change</button>
+        </div>
+        <div class="note" :style="{'background-color':notes[0].color}">
+            <h3 class="title">
+                {{notes[0].title}}
+            </h3>
+            <p class="content">
+                {{notes[0].content}}
+            </p>
+        </div>
+        <div class="note" :style="{'background-color':notes[1].color}">
+            <h3 class="title">
+                {{notes[1].title}}
+            </h3>
+            <p class="content">
+                {{notes[1].content}}
+            </p>
+        </div>
+        <div class="note" :style="{'background-color':notes[2].color}">
+            <h3 class="title">
+                {{notes[2].title}}
+            </h3>
+            <p class="content">
+                {{notes[2].content}}
+            </p>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>

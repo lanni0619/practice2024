@@ -1,0 +1,98 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Microsoft JhengHei;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    background-color: #4C566A;
+    font-family: Arial;
+    padding: 0.5rem;
+}
+
+#app {
+    background-color: #ECEFF4;
+    padding: 1rem;
+}
+
+#inputPanel {
+    width: 300px;
+    margin: auto;
+
+    input,
+    textarea,
+    select {
+        margin-bottom: 1rem;
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 18px;
+        background-color: #2E3440;
+        color: white;
+        border: 0px;
+        border-radius: 5px;
+        padding: 3px;
+        margin-bottom: 1rem;
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+            transition: 0.2s;
+        }
+    }
+}
+
+#outputPanel {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.note {
+    position: relative;
+    min-width: 240px;
+    max-width: 360px;
+    height: auto;
+
+    border: 1px solid #4C566A;
+    border-radius: 10px;
+    box-shadow: 0 0 5px;
+
+    text-align: center;
+    margin: 1rem;
+    padding: 1rem;
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    &:hover {
+        transform: scale(1.1);
+        transition: 0.2s;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+
+        padding: 2px;
+        border: 0;
+        background: rgba(0, 0, 0, 0);
+
+        font-weight: bolder;
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.5);
+            color: white;
+        }
+    }
+}

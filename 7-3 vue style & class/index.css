@@ -1,0 +1,31 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#app {
+    margin: 1rem;
+    display: flex;
+    justify-content: left;
+}
+
+.note {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 200px;
+    height: auto;
+    text-align: center;
+    margin: 1rem;
+    padding: 1rem;
+
+    .title {
+        margin-bottom: 1rem;
+    }
+
+    &:hover {
+        transform: scale(1.1);
+        transition: 0.2s;
+        cursor: pointer;
+    }
+}
