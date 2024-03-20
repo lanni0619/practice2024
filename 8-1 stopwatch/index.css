@@ -27,11 +27,14 @@
             #mainCount {
                 color: darkgray;
                 font-size: 5rem;
+                padding: 0 0rem;
+                margin: 0 0rem;
             }
 
             #subCount {
                 color: lightgray;
                 text-decoration: underline;
+                padding: 0 0rem;
             }
         }
 
@@ -118,6 +121,10 @@
                     background-color: rgba(0, 0, 0, 0.0);
                     color: white;
                     font-size: 1.25rem;
+                }
+
+                #index {
+                    width: 10%;
                 }
             }
         }
