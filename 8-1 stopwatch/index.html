@@ -1,4 +1,6 @@
-<!--參考: https://www.geeksforgeeks.org/how-to-create-stopwatch-using-html-css-and-javascript/ -->
+<!--ref: https://www.geeksforgeeks.org/how-to-create-stopwatch-using-html-css-and-javascript/ -->
+<!--ref: https://www.timeanddate.com/stopwatch/ -->
+<!-- HW: https://jsfiddle.net/vfmn2p45/21/ -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,14 +9,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./index.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- W3: Activate Modal with JavaScript -->
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
     <title>Document</title>
 </head>
 
 <body>
-    <div id="app">
-        <h1>{{mm}}:{{ss}}:{{ms}}</h1>
-        <button @click="startTimer()">Start</button>
-        <button @click="resetTimer()">reset</button>
+    <div id="container">
+        <h1>Online - Stopwatch</h1>
+        <div id="app">
+            <div id="countPanel">
+                <span id="mainCount">{{hh}}:{{mm}}:{{ss}}</span><span id="subCount">{{ms}}</span>
+            </div>
+            <div id="btnPanel">
+                <button id="startBtn" ref="startBtn" @click="startTimer()">Start</button>
+                <button id="splitBtn" class="disabled" ref="splitBtn" @click="splitTimer()" disabled>Split</button>
+                <button id="resetBtn" class="disabled" ref="resetBtn" @click="resetTimer()" disabled>Reset</button>
+            </div>
+            <hr ref="hr" style="display: none;">
+            <div id="printPanel">
+                <div v-for="(record,index) in recordTimes" class="recordTimes">
+                    <span>#{{index+1}}</span>
+                    <span>{{record.btnType}}</span>
+                    <span>{{record.timing}}</span>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="./index.js"></script>
 </body>

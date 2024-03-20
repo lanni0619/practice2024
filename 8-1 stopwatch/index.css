@@ -1,0 +1,125 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #ECEFF4;
+}
+
+#container {
+    /* border: 1px solid black; */
+    width: auto;
+    margin: auto;
+
+    h1 {
+        margin: 1rem;
+        font-size: 2.5rem;
+        text-align: center;
+        text-decoration: underline;
+    }
+
+    #app {
+        text-align: center;
+
+        #countPanel {
+            margin: 1rem;
+
+            #mainCount {
+                color: darkgray;
+                font-size: 5rem;
+            }
+
+            #subCount {
+                color: lightgray;
+                text-decoration: underline;
+            }
+        }
+
+        #btnPanel {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 3rem;
+
+            #startBtn {
+                background-color: #BF616A;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: darkred;
+                    transition: 1s;
+                }
+            }
+
+            #splitBtn {
+                background-color: #81A1C1;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: navy;
+                    transition: 1s;
+                }
+
+                &.disabled {
+                    opacity: 0.5;
+
+                    &:hover {
+                        cursor: not-allowed;
+                        background-color: #81A1C1;
+                    }
+                }
+            }
+
+            #resetBtn {
+                background-color: #A3BE8C;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: darkgreen;
+                    transition: 1s;
+                }
+
+                &.disabled {
+                    opacity: 0.3;
+
+                    &:hover {
+                        cursor: not-allowed;
+                        background-color: #A3BE8C;
+                    }
+                }
+            }
+
+            button {
+                width: 7rem;
+                height: 7rem;
+                font-size: 1rem;
+                font-weight: bolder;
+                padding: 1rem;
+                margin: 0 1rem;
+                border-radius: 50%;
+                border: 0px;
+                color: white;
+                box-shadow: 0 0 10px gray;
+            }
+        }
+
+        #printPanel {
+            width: 50%;
+            margin: 1rem auto;
+            /* border: 1px solid black; */
+            border-radius: 20px;
+            background-color: #4C566A;
+
+            .recordTimes {
+                background-color: rgba(0, 0, 0, 0.0);
+                display: flex;
+                justify-content: space-evenly;
+
+                span {
+                    background-color: rgba(0, 0, 0, 0.0);
+                    color: white;
+                    font-size: 1.25rem;
+                }
+            }
+        }
+    }
+}
