@@ -1,16 +1,5 @@
 {
-  "name": "practice2024",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "autosize": "^6.0.1",
-    "chart.js": "^4.4.2",
-    "vanilla-lazyload": "^17.8.8"
+    "node": "^21.7.1"
   }
 }
