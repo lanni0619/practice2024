@@ -1,3 +1,6 @@
+<!-- :class="{ABC: 布林值}"，可利用布林值控制是否代入clas ABC -->
+<!-- :disabled = "布林值"，同上 -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,15 +13,24 @@
 </head>
 
 <body>
+    <h1 id="title">Online Notebook APP</h1>
+    <h3>Your text will be saved in your browser storage as draft automatically.</h3>
     <div id="app">
-        <div id="inputPanel">
-            <h1>Online Notebook APP</h1>
-            <button @click="newNote()">+New</button><br>
-            <textarea ref="textarea" cols="30" rows="10" placeholder="type your notes here..."></textarea>
-        </div>
-        <div id="outputPanel" v-for="(note,index) in notes">
-            <span @click="modifyNote(index)">{{note}}</span>
-            <button @click="delNote(index)">X</button>
+        <div id="main">
+            <div id="outputPanel">
+                <div class="note" v-for="(note,index) in notes">
+                    <span
+                        @click="modifyNote(index)">{{note[0]}}{{note[1]}}{{note[2]}}{{note[3]}}{{note[4]}}{{note[5]}}{{note[6]}}{{note[7]}}...</span>
+                    <button :class="{block: delBtnIsBlock}" ref="delBtn" @click="delNote(index)"
+                        :disabled="delBtnIsBlock">X</button>
+                </div>
+            </div>
+            <div id="inputPanel">
+                <div>
+                    <button ref="newBtn" @click="newNote()">+New</button><br>
+                </div>
+                <textarea ref="textarea" cols="30" rows="10" placeholder="type your notes here..."></textarea>
+            </div>
         </div>
     </div>
     <script src="./index.js"></script>
