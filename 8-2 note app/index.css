@@ -25,14 +25,15 @@ h3 {
 
       .note {
         margin: 0rem 0rem;
-        margin-bottom: 0.5rem;
-        margin-left: 0.5rem;
+        margin-bottom: 1rem;
+        margin-left: 2.5%;
         padding: 0rem;
         /* border: 1px solid #d8dee9;
         border-radius: 10px; */
         font-size: 1rem;
         font-weight: bolder;
         width: 100%;
+        min-height: 50px;
         height: auto;
         display: flex;
         flex-direction: row;
@@ -43,7 +44,9 @@ h3 {
           text-align: left;
           font-size: 1.5rem;
           padding: 0.5rem;
-          border: 1px solid black;
+          border: 0px solid black;
+          border-radius: 10px 0 0 10px;
+          background-color: #eceff4;
           width: 300px;
           height: auto;
           word-wrap: break-word;
@@ -51,17 +54,17 @@ h3 {
             cursor: pointer;
           }
           &.focus {
-            background-color: #d08770;
+            background-color: #81a1c1;
           }
         }
 
         button {
           width: 50px;
-          height: 50px;
+          height: auto;
           border: 0px solid black;
           border-radius: 0 10px 10px 0;
           color: black;
-          background-color: white;
+          background-color: #5e81ac;
 
           &:hover {
             cursor: pointer;
@@ -71,7 +74,7 @@ h3 {
           }
 
           &.block {
-            opacity: 0.5;
+            opacity: 0.2;
 
             &:hover {
               cursor: not-allowed;
