@@ -1,58 +1,77 @@
 const { createApp } = Vue;
 
 createApp({
-    data() {
-        return {
-            notes: [],
-            focusIndex: 0,
-            delBtnIsBlock: false
+  data() {
+    return {
+      notes: [
+        {
+          content: null,
+          Index: 0,
+          focusNote: true,
+        },
+      ],
+      modifyOn: false,
+      delBtnIsBlock: false,
+    };
+  },
+  methods: {
+    newNote() {
+      if (this.modifyOn) {
+        this.resetFocus();
+        this.modifyOn = false;
+        this.$refs.newBtn.textContent = "+New";
+        this.delBtnIsBlock = false;
+        this.notes[this.notes.length - 1].focusNote = true;
+      } else {
+        let data = {
+          content: null,
+          Index: this.notes.length,
+          focusNote: true,
         };
+        this.notes[this.notes.length - 1].focusNote = false;
+        this.notes.push(data);
+      }
     },
-    methods: {
-        newNote() {
-            if (this.$refs.textarea.value == '') {
-                alert('Please type your note...');
-
-            } else if (!this.focusNote) {
-                // set status
-                this.notes.push(this.$refs.textarea.value);
-            } else if (this.focusNote) {
-                // reset UI
-                this.notes[this.focusIndex] = this.$refs.textarea.value;
-                this.$refs.textarea.value = '';
-                this.$refs.newBtn.textContent = '+New';
-                this.$refs.textarea.style.backgroundColor = 'white';
-                // reset status
-                this.focusIndex = 0;
-                this.focusNote = false;
-                this.delBtnIsBlock = false;
-            }
-        },
-        delNote(index) {
-            this.notes.splice(index, 1);
-            this.$refs.textarea.value = '';
-        },
-        modifyNote(index) {
-            //set status
-            this.delBtnIsBlock = true;
-            this.focusNote = true;
-            //set UI
-            this.$refs.textarea.value = this.notes[index];
-            this.$refs.textarea.style.backgroundColor = '#A3BE8C';
-            this.$refs.newBtn.textContent = '*Modify';
-        }
+    modifyNote(note, index) {
+      //set status
+      this.resetFocus();
+      this.notes[index].focusNote = true;
+      this.modifyOn = true;
+      this.modifyIndex = index;
+      //set UI
+      this.delBtnIsBlock = true;
+      this.$refs.newBtn.textContent = "*Modify";
     },
-    watch: {
-        notes: {
-            handler(value) {
-                localStorage.setItem('notesData', JSON.stringify(this.notes));
-            },
-            deep: true,
-        }
+    resetFocus() {
+      for (index in this.notes) {
+        this.notes[index].focusNote = false;
+      }
     },
-    mounted() {
-        if (localStorage.getItem('notesData')) {
-            this.notes = JSON.parse(localStorage.getItem('notesData'));
-        }
+    delNote(index) {
+      this.notes.splice(index, 1);
+      this.resetFocus();
+      if (this.notes.length == 0) {
+        let data = {
+          content: null,
+          Index: this.notes.length,
+          focusNote: true,
+        };
+        this.notes.push(data);
+      }
+      // this.notes[this.notes.length - 1].focusNote = true;
     },
+  },
+  // watch: {
+  //   notes: {
+  //     handler(value) {
+  //       localStorage.setItem("notesData", JSON.stringify(this.notes));
+  //     },
+  //     deep: true,
+  //   },
+  // },
+  // mounted() {
+  //   if (localStorage.getItem("notesData")) {
+  //     this.notes = JSON.parse(localStorage.getItem("notesData"));
+  //   }
+  // },
 }).mount("#app");

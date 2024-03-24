@@ -1,113 +1,119 @@
 * {
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-    font-family: Microsoft JhengHei;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: Microsoft JhengHei;
 }
 
 #title {
-    color: #D08770;
-    background-color: #4C566A;
-    padding: 1rem 0px;
+  color: #d08770;
+  background-color: #4c566a;
+  padding: 1rem 0px;
 }
 
 h3 {
-    margin: 1rem 0px;
+  margin: 1rem 0px;
 }
 
 #app {
-    #main {
+  #main {
+    display: flex;
+
+    #outputPanel {
+      position: relative;
+      width: 30%;
+
+      .note {
+        margin: 0rem 0rem;
+        margin-bottom: 0.5rem;
+        margin-left: 0.5rem;
+        padding: 0rem;
+        /* border: 1px solid #d8dee9;
+        border-radius: 10px; */
+        font-size: 1rem;
+        font-weight: bolder;
+        width: 100%;
+        height: auto;
         display: flex;
+        flex-direction: row;
+        justify-content: center;
+        position: relative;
 
-        #outputPanel {
-            position: relative;
-            width: 30%;
-
-            .note {
-                margin: 0rem 0rem;
-                padding: 1rem;
-                border: 2px solid #D8DEE9;
-                border-radius: 10px;
-                font-size: 1rem;
-                font-weight: bolder;
-                width: 100%;
-                height: 100px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
-                flex-wrap: wrap;
-                position: relative;
-
-                &:hover {
-                    background-color: #D08770;
-                    transition: 0.5s;
-                }
-
-                span {
-                    cursor: pointer;
-                }
-
-                &.focusNote {
-                    background-color: #B48EAD;
-                }
-
-                button {
-                    border: 0px;
-                    background-color: rgba(0, 0, 0, 0);
-                    position: absolute;
-                    top: 5px;
-                    right: 10px;
-
-                    &:hover {
-                        cursor: pointer;
-                        transform: scale(1.5);
-                        transition: 0.25s;
-                    }
-
-                    &.block {
-                        opacity: 0.5;
-
-                        &:hover {
-                            cursor: not-allowed;
-                        }
-                    }
-                }
-            }
+        span {
+          text-align: left;
+          font-size: 1.5rem;
+          padding: 0.5rem;
+          border: 1px solid black;
+          width: 300px;
+          height: auto;
+          word-wrap: break-word;
+          &:hover {
+            cursor: pointer;
+          }
+          &.focus {
+            background-color: #d08770;
+          }
         }
 
-        #inputPanel {
-            width: 100%;
+        button {
+          width: 50px;
+          height: 50px;
+          border: 0px solid black;
+          border-radius: 0 10px 10px 0;
+          color: black;
+          background-color: white;
 
-            div button {
-                font-size: 1.5rem;
-                font-weight: bolder;
-                padding: 0.5rem;
-                margin: 0 2.5%;
-                border: 0px;
-                border-radius: 10px;
-                background-color: #B48EAD;
+          &:hover {
+            cursor: pointer;
+            background-color: black;
+            color: white;
+            transition: 0.25s;
+          }
 
-                &:hover {
-                    cursor: pointer;
-                    background-color: black;
-                    color: white;
-                    transition: 0.1s;
-                }
+          &.block {
+            opacity: 0.5;
+
+            &:hover {
+              cursor: not-allowed;
             }
-
-            textarea {
-                width: 95%;
-                margin-left: 2.5%;
-                height: 500px;
-                font-size: 2rem;
-                border: 0px;
-                background-color: #ECEFF4;
-
-                &:focus {
-                    border: 5px solid #B48EAD;
-                    transition: 0.1s;
-                }
-            }
+          }
         }
+      }
     }
+
+    #inputPanel {
+      width: 100%;
+
+      div button {
+        font-size: 1.5rem;
+        font-weight: bolder;
+        padding: 0.5rem;
+        margin: 0 2.5%;
+        border: 0px;
+        border-radius: 10px;
+        background-color: #b48ead;
+
+        &:hover {
+          cursor: pointer;
+          background-color: black;
+          color: white;
+          transition: 0.1s;
+        }
+      }
+
+      textarea {
+        width: 95%;
+        margin-left: 2.5%;
+        height: 500px;
+        font-size: 2rem;
+        border: 0px;
+        background-color: #eceff4;
+
+        &:focus {
+          border: 5px solid #b48ead;
+          transition: 0.1s;
+        }
+      }
+    }
+  }
 }
