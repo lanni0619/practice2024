@@ -1,0 +1,67 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 1px;
+  font-size: 1.25rem;
+  list-style: none;
+  color: #212121;
+  font-family: 思源黑體, 微軟正黑體, 蘋方體, 黑體, sans-serif, serif;
+}
+h1 {
+  text-align: center;
+}
+
+#main {
+  border: 1px solid black;
+  border-radius: 1rem;
+  width: 360px;
+  min-height: 500px;
+  max-height: auto;
+  margin: auto;
+  position: relative;
+  #addMemberBtn {
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 1rem;
+    margin: 1rem 3.6rem;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.25);
+      transition: 0.5s;
+    }
+  }
+  #homeCenter {
+    min-height: 500px;
+    max-height: auto;
+    border: 1px solid black;
+  }
+  #homeBtn {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 1rem;
+    span {
+      border: 0px solid black;
+    }
+  }
+}
+
+#modal-container {
+  border: 1px solid black;
+  width: 70%;
+  margin: auto;
+  padding: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  input {
+    width: 100%;
+  }
+  span {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

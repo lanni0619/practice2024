@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Bill Split</title>
+  </head>
+
+  <body>
+    <h1>分帳計算機</h1>
+    <div id="app">
+      <div id="main">
+        <div id="homePage">
+          <div id="addMemberBtn" @click="openAddMemModal()">新增成員</div>
+          <div id="homeCenter">
+            <span v-for="mem in members">{{mem}}</span>
+          </div>
+          <div id="modal-container" v-show="showMemModal">
+            <input
+              v-model="memName"
+              type="text"
+              placeholder="請輸入成員名稱:"
+            />
+            <div>
+              <span @click="addMem()">新增</span
+              ><span @click="clsMem()">關閉</span>
+            </div>
+          </div>
+          <div id="homeBtn">
+            <span>分帳款項</span><span>＋</span><span>結束分帳</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
