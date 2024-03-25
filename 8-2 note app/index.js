@@ -8,8 +8,10 @@ createApp({
           content: null,
           Index: 0,
           focusNote: true,
+          showNote: false,
         },
       ],
+      countIndex: 0,
       modifyOn: false,
       delBtnIsBlock: false,
     };
@@ -58,18 +60,23 @@ createApp({
       }
     },
     createNewNote() {
+      this.notes[this.notes.length - 1].showNote = true;
+      this.countIndex = this.countIndex + 1;
       let data = {
         content: null,
-        Index: this.notes.length,
+        Index: this.countIndex,
         focusNote: true,
+        showNote: false,
       };
       this.notes.push(data);
+      console.log(this.notes);
     },
   },
   watch: {
     notes: {
       handler(value) {
-        localStorage.setItem("noteBookData", JSON.stringify(this.notes));
+        localStorage.setItem("noteBookData", JSON.stringify(this.notes))
+        localStorage.setItem("countIndex", JSON.stringify(this.countIndex));
       },
       deep: true,
     },
@@ -77,6 +84,7 @@ createApp({
   mounted() {
     if (localStorage.getItem("noteBookData")) {
       this.notes = JSON.parse(localStorage.getItem("noteBookData"));
+      this.countIndex = JSON.parse(localStorage.getItem("countIndex"));
     }
   },
 }).mount("#app");

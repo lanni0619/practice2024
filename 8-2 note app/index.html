@@ -3,49 +3,39 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./index.css" />
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>note app</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <h1 id="title">Online Notebook APP</h1>
     <h3>
-      Your text will be saved in your browser storage as draft automatically.
+        Your text will be saved in your browser storage as draft automatically.
     </h3>
     <div id="app">
-      <div id="main">
-        <div id="outputPanel">
-          <div class="note" v-for="(note,index) in notes">
-            <span
-              :class="{focus: note.focusNote}"
-              @click="modifyNote(note,index)"
-              >{{note.content}}</span
-            >
-            <button
-              :class="{block: delBtnIsBlock}"
-              ref="delBtn"
-              @click="delNote(index)"
-              :disabled="delBtnIsBlock"
-            >
-              X
-            </button>
-          </div>
+        <div id="main">
+            <div id="outputPanel">
+                <div v-show="note.showNote" class="note" v-for="(note,index) in notes">
+                    <span :class="{focus: note.focusNote}" @click="modifyNote(note,index)">{{note.content}}</span>
+                    <button :class="{block: delBtnIsBlock}" ref="delBtn" @click="delNote(index)"
+                        :disabled="delBtnIsBlock">
+                        X
+                    </button>
+                </div>
+            </div>
+            <div id="inputPanel">
+                <div><button ref="newBtn" @click="newNote()">+New</button><br /></div>
+                <textarea v-model="note.content" v-show="note.focusNote" placeholder="type your notes here..."
+                    v-for="note in notes"></textarea>
+            </div>
         </div>
-        <div id="inputPanel">
-          <div><button ref="newBtn" @click="newNote()">Next</button><br /></div>
-          <textarea
-            v-model="note.content"
-            v-show="note.focusNote"
-            placeholder="type your notes here..."
-            v-for="note in notes"
-          ></textarea>
-        </div>
-      </div>
     </div>
     <script src="./index.js"></script>
-  </body>
+</body>
+
 </html>
