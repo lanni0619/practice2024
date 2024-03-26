@@ -2,84 +2,102 @@
 
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Bill Split</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./index.css" />
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <title>Bill Split</title>
-</head>
-
-<body>
-  <h1>分帳計算機</h1>
-  <div id="app">
-    <div id="main">
-      <div id="homePage">
-
-        <div id="addMemberBtn" @click="openAddMemModal()">+新增成員</div>
-        <!-- 成員清單 -->
-        <div id="memList-container">
-          <div class="memList-content" style="background-color: #81A1C1;border-radius: 0.5rem 0.5rem 0 0;">
-            <span style="font-weight: bolder;color:white">姓名</span>
-            <span style="font-weight: bolder; color:white">分帳結果</span>
-          </div>
-          <div class=" memList-content" v-for="(mem,index) in members">
-            <span>{{mem.name}}</span>
-            <span :style="{color: mem.textColor}">{{mem.result}}</span>
-          </div>
-        </div>
-        <!-- 新增成員Modal -->
-        <div id="memModal-container" v-show="showMemModal">
-          <div id="memModal-content">
-            <input v-model="memName" type="text" placeholder="請輸入成員名稱..." />
-            <div>
-              <span id="addMemLeft" @click="addMem()">新增</span>
-              <span id="addMemRight" @click="clsMem()">關閉</span>
+  <body>
+    <h1>分帳計算機</h1>
+    <div id="app">
+      <div id="main">
+        <div id="homePage">
+          <div id="addMemberBtn" @click="openAddMemModal()">+新增成員</div>
+          <!-- 成員清單 -->
+          <div id="memList-container">
+            <div
+              class="memList-content"
+              style="
+                background-color: #81a1c1;
+                border-radius: 0.5rem 0.5rem 0 0;
+              "
+            >
+              <span style="font-weight: bolder; color: white">姓名</span>
+              <span style="font-weight: bolder; color: white">分帳結果</span>
+            </div>
+            <div class="memList-content" v-for="(mem,index) in members">
+              <span>{{mem.name}}</span>
+              <span :style="{color: mem.textColor}">{{mem.result}}</span>
             </div>
           </div>
-        </div>
-        <!-- 新增款項Modal -->
-        <div id="itemModal-container" v-show="showItemModal">
-          <div id="itemModal-content">
-            <input v-model="itemName" type="text" placeholder="請輸入款項名稱..." />
-            <input v-model="amount" type="text" placeholder="請輸入款項金額..." />
-            <select v-model="itemWhoPay">
-              <option disabled value="">請選擇付款人</option>
-              <option v-for="mem in members" v-bind:value="{name: mem.name}">{{mem.name}}</option>
-            </select>
-            <div>
-              <span id="addItemLeft" @click="addItem()">新增</span>
-              <span id="addItemRight" @click="clsMem()">關閉</span>
+          <!-- 新增成員Modal -->
+          <div id="memModal-container" v-show="showMemModal">
+            <div id="memModal-content">
+              <input
+                v-model="memName"
+                type="text"
+                placeholder="請輸入成員名稱..."
+              />
+              <div>
+                <span id="addMemLeft" @click="addMem()">新增</span>
+                <span id="addMemRight" @click="clsMem()">關閉</span>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- 款項清單 -->
-        <div id="itemList-container" v-if="itemList">
-          <div class="itemList-content" style="background-color: #88C0D0;">
-            <span class="itemName" style="font-weight: bolder;">款項名稱</span>
-            <span class="itemAmount" style="font-weight: bolder;">款項金額</span>
-            <span class="whoPay" style="font-weight: bolder;">付款人</span>
-            <span></span>
+          <!-- 新增款項Modal -->
+          <div id="itemModal-container" v-show="showItemModal">
+            <div id="itemModal-content">
+              <input
+                v-model="itemName"
+                type="text"
+                placeholder="請輸入款項名稱..."
+              />
+              <input
+                v-model="amount"
+                type="number"
+                placeholder="請輸入款項金額..."
+              />
+              <select v-model="itemWhoPay">
+                <option disabled value="">請選擇付款人</option>
+                <option v-for="mem in members" v-bind:value="{name: mem.name}">
+                  {{mem.name}}
+                </option>
+              </select>
+              <div>
+                <span id="addItemLeft" @click="addItem()">新增</span>
+                <span id="addItemRight" @click="clsMem()">關閉</span>
+              </div>
+            </div>
           </div>
-          <div class="itemList-content" v-for="(bill,index) in bills">
-            <span class="itemName">{{bill.itemName}}</span>
-            <span class="itemAmount">{{bill.amount}}</span>
-            <span class="whoPay">{{bill.whoPay}}</span>
-            <button @click="delItem(index)">X</button>
+          <!-- 款項清單 -->
+          <div id="itemList-container" v-if="itemList">
+            <div class="itemList-content" style="background-color: #88c0d0">
+              <span class="itemName" style="font-weight: bolder">款項名稱</span>
+              <span class="itemAmount" style="font-weight: bolder"
+                >款項金額</span
+              >
+              <span class="whoPay" style="font-weight: bolder">付款人</span>
+              <span></span>
+            </div>
+            <div class="itemList-content" v-for="(bill,index) in bills">
+              <span class="itemName">{{bill.itemName}}</span>
+              <span class="itemAmount">{{bill.amount}}</span>
+              <span class="whoPay">{{bill.whoPay}}</span>
+              <button @click="delItem(index)">X</button>
+            </div>
+          </div>
+          <!-- 底部主按鍵 -->
+          <div id="homeBtn">
+            <div id="a" @click="toggle()">Toggle</div>
+            <div id="b" @click="openAddItemModal()">+New</div>
+            <div id="c" @click="endSplit()">END</div>
           </div>
         </div>
-        <!-- 底部主按鍵 -->
-        <div id="homeBtn">
-          <div id="a" @click="toggle()">Toggle</div>
-          <div id="b" @click="openAddItemModal()">+New</div>
-          <div id="c" @click="endSplit()">END</div>
-        </div>
-
       </div>
     </div>
-  </div>
-  <script src="./index.js"></script>
-</body>
-
+    <script src="./index.js"></script>
+  </body>
 </html>

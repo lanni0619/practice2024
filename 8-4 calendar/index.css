@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  list-style: none;
+  color: #212121;
+  font-family: 思源黑體, 微軟正黑體, 蘋方體, 黑體, sans-serif, serif;
+}
+
+:root {
+  --fc-border-color: black;
+  --fc-daygrid-event-dot-width: 5px;
+}
+
+#memModal-container {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  #memModal-content {
+    background-color: #d8dee9;
+    margin: 15% auto;
+    padding: 2rem;
+    width: 20%;
+
+    input {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    div {
+      display: flex;
+
+      span#addMemLeft {
+        width: 50%;
+        text-align: center;
+        color: white;
+        background-color: #2e3440;
+        border-radius: 0.5rem 0 0 0.5rem;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      span#addMemRight {
+        width: 50%;
+        text-align: center;
+        color: white;
+        background-color: #4c566a;
+        border-radius: 0 0.5rem 0.5rem 0;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

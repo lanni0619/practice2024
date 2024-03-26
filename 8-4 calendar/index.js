@@ -2,35 +2,39 @@ const { createApp } = Vue;
 
 const app = createApp({
   data() {
-
+    return {
+      showModal: false,
+    };
   },
   methods: {
-
+    addEvent() {
+      this.showModal = false;
+    },
+    clsModal() {
+      this.showModal = false;
+    },
   },
-  watch: {
-
-  },
-  mounted() {
-    document.addEventListener('DOMContentLoaded', function () {
-      var appEl = document.getElementById('app');
-      var app = new FullCalendar.Calendar(appEl, {
+  mounxted() {
+    document.addEventListener("DOMContentLoaded", function () {
+      var appEl = document.getElementById("appCalendar");
+      var appCalendar = new FullCalendar.Calendar(appEl, {
         customButtons: {
           myCustomButton: {
-            text: 'custom!',
+            text: "新增活動",
             click: function () {
-              alert('clicked the custom button!');
-            }
-          }
+              this.showModal = true;
+            },
+          },
         },
         headerToolbar: {
-          left: 'prev,next today myCustomButton',
-          center: 'title',
-          right: 'dayGridMonth,timeGridWeek,timeGridDay'
+          left: "prev,next today",
+          center: "title",
+          right: "myCustomButton",
         },
       });
-      app.render();
-    })
+      appCalendar.render();
+    });
   },
-})
+});
 
 app.mount("#app");
