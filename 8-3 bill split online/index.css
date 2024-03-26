@@ -1,67 +1,286 @@
 @charset "UTF-8";
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   letter-spacing: 1px;
-  font-size: 1.25rem;
+  font-size: 1rem;
   list-style: none;
   color: #212121;
   font-family: 思源黑體, 微軟正黑體, 蘋方體, 黑體, sans-serif, serif;
 }
+
 h1 {
   text-align: center;
+  font-size: 3rem;
 }
 
 #main {
-  border: 1px solid black;
+  border: 7px double black;
+  box-shadow: 0 0 1rem lightgray;
   border-radius: 1rem;
-  width: 360px;
-  min-height: 500px;
-  max-height: auto;
+  width: 320px;
+  height: 500px;
   margin: auto;
   position: relative;
+
   #addMemberBtn {
     text-align: center;
     border: 1px solid black;
     border-radius: 1rem;
-    margin: 1rem 3.6rem;
+    padding: 0.1rem 0.5rem 0.1rem 0.5rem;
+    margin: 1rem 6rem 0.1rem 6rem;
+    background-color: #D8DEE9;
+
     &:hover {
       cursor: pointer;
       transform: scale(1.25);
       transition: 0.5s;
+      box-shadow: 0 0 1rem lightgray;
+      color: white;
+      font-weight: bolder;
+      background-color: black;
     }
   }
-  #homeCenter {
-    min-height: 500px;
+
+  #memList-container {
+    height: 200px;
     max-height: auto;
-    border: 1px solid black;
+    overflow: auto;
+    padding: 1rem 3rem;
+
+    .memList-content {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.25rem 0;
+      border-bottom: 1px solid black;
+
+      span {
+        margin: 0rem 1rem;
+      }
+    }
   }
+
+  #itemList-container {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 220px;
+    border-top: 3px solid black;
+    border-bottom: 0px solid black;
+    overflow: auto;
+    padding: 1rem;
+
+    .itemList-content {
+      display: flex;
+      justify-content: flex-start;
+      padding: 0.25rem 0rem;
+      border-bottom: 1px solid black;
+
+      span {
+        font-size: 0.75rem;
+        /* border: 1px solid black; */
+      }
+
+      span.itemName {
+        width: 30%;
+        margin-right: 1%;
+        text-align: center;
+      }
+
+      span.itemAmount {
+        width: 30%;
+        margin-right: 1%;
+        text-align: center;
+      }
+
+      span.whoPay {
+        width: 30%;
+        margin-right: 1%;
+        text-align: center;
+      }
+
+      button {
+        width: 4%;
+        border: 0px solid black;
+        background-color: white;
+        font-size: 0.75rem;
+        padding: 0rem 0.1rem;
+
+        &:hover {
+          cursor: pointer;
+          color: white;
+          background-color: black;
+          transition: 0.5s;
+        }
+      }
+    }
+  }
+
   #homeBtn {
-    text-align: center;
     display: flex;
-    justify-content: space-between;
-    padding: 0px 1rem;
-    span {
-      border: 0px solid black;
+    flex-direction: row;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 0 0 1rem 1rem;
+    border-top: 3px solid black;
+    background-color: #D8DEE9;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+
+    div#a {
+      text-align: center;
+      width: 35%;
+      border-radius: 0 0 0rem 0.5rem;
+      font-size: 1.25rem;
+      padding: 0.25rem;
+
+      &:hover {
+        cursor: pointer;
+        background-color: black;
+        color: white;
+        font-weight: bolder;
+        transition: 0.3s;
+      }
+    }
+
+    div#b {
+      text-align: center;
+      width: 30%;
+      border-left: 2px solid black;
+      border-right: 2px solid black;
+      font-size: 1.25rem;
+      padding: 0.25rem;
+
+      &:hover {
+        cursor: pointer;
+        background-color: black;
+        color: white;
+        font-weight: bolder;
+        transition: 0.3s;
+      }
+    }
+
+    div#c {
+      text-align: center;
+      width: 35%;
+      border-radius: 0 0 0.5rem 0rem;
+      font-size: 1.25rem;
+      padding: 0.25rem;
+
+      &:hover {
+        cursor: pointer;
+        background-color: black;
+        color: white;
+        font-weight: bolder;
+        transition: 0.3s;
+      }
     }
   }
 }
 
-#modal-container {
-  border: 1px solid black;
-  width: 70%;
-  margin: auto;
-  padding: 1rem;
-  position: absolute;
-  top: 50%;
-  left: 15%;
-  input {
-    width: 100%;
+#memModal-container {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  #memModal-content {
+    background-color: #D8DEE9;
+    margin: 15% auto;
+    padding: 2rem;
+    width: 20%;
+
+    input {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    div {
+      display: flex;
+
+      span#addMemLeft {
+        width: 50%;
+        text-align: center;
+        color: white;
+        background-color: #2E3440;
+        border-radius: 0.5rem 0 0 0.5rem;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      span#addMemRight {
+        width: 50%;
+        text-align: center;
+        color: white;
+        background-color: #4C566A;
+        border-radius: 0 0.5rem 0.5rem 0;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
   }
-  span {
-    &:hover {
-      cursor: pointer;
+}
+
+#itemModal-container {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  #itemModal-content {
+    background-color: #D8DEE9;
+    width: 20%;
+    margin: 15% auto;
+    padding: 1rem;
+
+    input {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+
+    select {
+      margin-bottom: 0.5rem;
+    }
+
+    div {
+      display: flex;
+
+      span#addItemLeft {
+        width: 50%;
+        text-align: center;
+        color: white;
+        background-color: #2E3440;
+        border-radius: 0.5rem 0 0 0.5rem;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      span#addItemRight {
+        width: 50%;
+        text-align: center;
+        color: white;
+        background-color: #4C566A;
+        border-radius: 0 0.5rem 0.5rem 0;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
     }
   }
 }
