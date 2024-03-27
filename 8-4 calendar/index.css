@@ -16,7 +16,7 @@
   --fc-daygrid-event-dot-width: 5px;
 }
 
-#memModal-container {
+#Modal-container {
   position: fixed;
   z-index: 999;
   left: 0;
@@ -25,7 +25,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
 
-  #memModal-content {
+  #Modal-content {
     background-color: #d8dee9;
     margin: 15% auto;
     padding: 2rem;
@@ -39,7 +39,7 @@
     div {
       display: flex;
 
-      span#addMemLeft {
+      span#addLeft {
         width: 50%;
         text-align: center;
         color: white;
@@ -51,7 +51,7 @@
         }
       }
 
-      span#addMemRight {
+      span#clsRight {
         width: 50%;
         text-align: center;
         color: white;
