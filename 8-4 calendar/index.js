@@ -1,12 +1,13 @@
 const { createApp } = Vue;
-
 const app = createApp({
   data() {
     return {
+      calendar: null,
       showModal: false,
       exercises: [],
       title: '',
-      eventTime: '',
+      timeMessage: '',
+      id: 0,
     };
   },
   methods: {
@@ -15,39 +16,28 @@ const app = createApp({
     },
     addEvent() {
       let data = {
+        id: this.id,
         title: this.title,
-        eventTime: this.eventTime,
+        start: this.timeMessage,
       };
       this.exercises.push(data);
+
+      this.calendar.addEvent({
+        id: this.exercises[this.id].id,
+        title: String(this.exercises[this.id].title),
+        start: '2024/03/25'
+      })
+
       this.showModal = false;
-      console.log(this.exercises);
+      this.id = this.id + 1;
+      // this.calendar.addEvent({
+      //   id: 1,
+      //   title: 'dynamic event',
+      //   start: '2024-03-27',
+      // })
     },
     clsModal() {
       this.showModal = false;
-    },
-    createCalendar() {
-      let openModal = this.openModal;
-      var calendarEl = document.getElementById('app');
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        customButtons: {
-          myCustomButton: {
-            text: '新增活動',
-            click: function () {
-              openModal();
-            }
-          }
-        },
-        headerToolbar: {
-          left: 'prev,next today myCustomButton',
-          center: 'title',
-          right: 'dayGridMonth,timeGridWeek,timeGridDay'
-        }
-      });
-      calendar.on('dateClick', function (info) {
-        console.log('clicked on ' + info.dateStr);
-      });
-      calendar.render();
     },
   },
   watch: {
@@ -58,20 +48,50 @@ const app = createApp({
     //   deep: true,
     // }
   },
-  created() {
-    this.createCalendar();
-  },
   mounted() {
-    // datetimepicker
-    $.datetimepicker.setLocale('zh');
-    $('#datetimepicker1').datetimepicker();
+    const vm = this; // 儲存Vue instance的引用
+    var calendarEl = this.$refs.calendar; // = document.getElementById('#calendar')
+    jQuery.datetimepicker.setLocale('en');
+    const inputElement = this.$refs.datetimepicker;
 
-    // if (localStorage.getItem("split_members")) {
-    //   this.members = JSON.parse(localStorage.getItem("split_members"));
-    // }
-    // if (localStorage.getItem("split_bills")) {
-    //   this.bills = JSON.parse(localStorage.getItem("split_bills"));
-    // }
+    // datetimepicker套件可能是直接操作DOM不會經過Vue的系統，即便在DOM加上v-model也不行，因此要手動監聽
+    jQuery(inputElement).datetimepicker({
+      timepicker: false,
+      onChangeDateTime: function (dp, $input) {
+        // vm.updateTimeMessage($input.val());
+        vm.timeMessage = $input.val();
+      }
+    });
+
+    this.calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      customButtons: {
+        myCustomButton: {
+          text: '新增活動',
+          click: function () {
+            vm.openModal();
+          }
+        }
+      },
+      headerToolbar: {
+        left: 'prev,next today myCustomButton',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      },
+      events: [
+        // {
+        //   id: 'a',
+        //   title: 'my event',
+        //   start: '2024-03-27'
+        // },
+        // {
+        //   id: 'b',
+        //   title: 'my event2',
+        //   start: '2024-03-28'
+        // },
+      ]
+    });
+    this.calendar.render();
   },
 });
 

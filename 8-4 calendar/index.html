@@ -20,12 +20,12 @@
 
 <body>
   <div id="app">
-
+    <div ref="calendar"></div>
     <!-- 新增活動Modal -->
     <div id="Modal-container" v-show="showModal">
       <div id="Modal-content">
-        <input type="text" placeholder="請輸入活動名稱..." v-model="title" />
-        <input id="datetimepicker1" type="text" placeholder="請選擇開始時間..." v-model="eventTime">
+        <input v-model="title" type="text" placeholder="請輸入活動名稱..." />
+        <input ref="datetimepicker" id="datetimepicker" type="text" placeholder="請選擇開始時間..." />
         <div>
           <span id="addLeft" @click="addEvent()">新增</span>
           <span id="clsRight" @click="clsModal()">關閉</span>

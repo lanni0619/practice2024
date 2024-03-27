@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./index.css" />
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <title>Document</title>
-  </head>
 
-  <body>
-    <div id="app">
-      <input type="text" v-model="note1" />
-      <h1>{{note1}}</h1>
-    </div>
-    <script src="./index.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FullCalendar Example</title>
+  <!-- 引入 FullCalendar 的 CSS 文件 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.0/main.min.css" rel="stylesheet">
+  <!-- 引入 Vue 和 FullCalendar 的 JavaScript 文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.0/main.min.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div id="calendar"></div>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      mounted() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          events: [
+            { title: 'Event 1', date: '2024-03-25' },
+            { title: 'Event 2', date: '2024-03-26' }
+          ]
+        });
+        calendar.render();
+      }
+    });
+  </script>
+</body>
+
 </html>

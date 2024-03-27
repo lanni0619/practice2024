@@ -1,9 +1,13 @@
-const { createApp } = Vue;
-
-createApp({
+new Vue({
+  el: '#app',
   data() {
     return {
-      note1: "",
+      calendarPlugins: [FullCalendar.dayGridPlugin],
+      initialView: 'dayGridMonth',
+      events: [
+        { title: 'Event 1', date: '2024-03-25' },
+        { title: 'Event 2', date: '2024-03-26' }
+      ]
     };
-  },
-}).mount("#app");
+  }
+});
