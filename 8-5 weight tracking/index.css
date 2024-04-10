@@ -1,0 +1,19 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#app {
+    display: flex;
+    flex-direction: row;
+
+    #leftPanel {
+        border-right: 1px solid black;
+        width: 20%;
+    }
+
+    #rightPanel {
+        width: 80%;
+    }
+}
