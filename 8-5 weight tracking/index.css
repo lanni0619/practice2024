@@ -2,18 +2,105 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: 思源黑體, 微軟正黑體, 蘋方體, 黑體, sans-serif, serif;
+
 }
 
 #app {
-    display: flex;
-    flex-direction: row;
-
-    #leftPanel {
-        border-right: 1px solid black;
-        width: 20%;
+    h1 {
+        display: block;
+        text-align: center;
     }
 
-    #rightPanel {
-        width: 80%;
+    #panel {
+        margin: 1% 10%;
+        padding: 2%;
+
+        display: flex;
+        flex-direction: row;
+
+        background-color: #ECEFF4;
+        border: 1px solid #D8DEE9;
+        border-radius: 1rem;
+        box-shadow: 0 0 3rem #E5E9F0;
+
+        #chartPanel {
+            width: 70%;
+            padding-right: 2%;
+
+            input {
+                border: 3px solid black;
+                font-size: 1rem;
+                font-weight: bolder;
+                margin-right: 1rem;
+                margin-bottom: 1.5rem;
+
+                &:focus {
+                    border: 3px solid #BF616A;
+                }
+            }
+
+            button {
+                background-color: #BF616A;
+                border: 0;
+                border-radius: 0.5rem;
+                padding: 0.5rem;
+                color: #ECEFF4;
+                font-weight: bolder;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: #3B4252;
+                    transition: 0.5s;
+                }
+            }
+        }
+
+        #dataPanel {
+            width: 30%;
+            border-left: 2px solid #D8DEE9;
+            padding-left: 2%;
+
+            .record {
+                border: 0px solid black;
+                border-radius: 1rem;
+                display: flex;
+                justify-content: space-evenly;
+
+                margin-bottom: 1rem;
+                padding: 0.5rem;
+                background-color: #4C566A;
+                color: beige;
+                font-weight: bolder;
+
+                &:hover {
+                    transform: scale(1.1);
+                    transition: 0.5s;
+                }
+
+                .record-date {
+                    width: 45%;
+                    border: 0px solid white;
+                }
+
+                .record-weight {
+                    width: 35%;
+                    border: 0px solid white;
+                }
+
+                .record-btn {
+                    color: white;
+                    border: 0;
+                    background-color: #4C566A;
+                    font-size: 1rem;
+
+                    &:hover {
+                        cursor: pointer;
+                        transform: scale(1.5);
+                        transition: 0.5s;
+                    }
+                }
+            }
+        }
     }
 }

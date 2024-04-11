@@ -20,20 +20,29 @@
 
 <body>
   <div id="app">
-    <div id="leftPanel">
-      <div v-for="(data,index) in record">
-        <span>日期:{{data.date}}，</span>
-        <span>體重:{{data.weight}}公斤</span>
-        <button @click="del(index)">x</button>
+    <h1>Weight Tracking APP</h1>
+
+    <div id="panel">
+
+      <div id=chartPanel>
+        <input ref="inputWeight" type="text" placeholder="請輸入您的體重">
+        <input ref="inputDate" type="text" placeholder="請輸入紀錄日期">
+        <button @click="submitRecord()">Submit</button>
+        <canvas ref="ctx"></canvas>
       </div>
+
+      <div id="dataPanel">
+        <div class="record" v-for="(data,index) in record">
+          <span class="record-date">日期:{{data.date}}</span>
+          <span class="record-weight">體重:{{data.weight}}Kg</span>
+          <button class="record-btn" @click="del(index)">x</button>
+        </div>
+      </div>
+
     </div>
-    <div id=rightPanel>
-      <input ref="inputWeight" type="text" placeholder="請輸入您的體重">
-      <input ref="inputDate" type="text" placeholder="請輸入紀錄日期">
-      <button @click="submitRecord()">Submit</button>
-      <canvas ref="ctx"></canvas>
-    </div>
+
   </div>
+
   <script src="./index.js"></script>
 </body>
 

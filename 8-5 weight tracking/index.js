@@ -94,12 +94,12 @@ const app = createApp({
       data: {
         labels: JSON.parse(JSON.stringify(this.dates)),
         datasets: [{
-          label: '體重',
+          label: 'weight',
           data: JSON.parse(JSON.stringify(this.weights)),
           fill: false,
-          borderColor: 'rgb(75, 192, 192)',
+          borderColor: '#5E81AC',
           tension: 0.1,
-          borderWidth: 1
+          borderWidth: 5
         }]
       },
       options: {}
