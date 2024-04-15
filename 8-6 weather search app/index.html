@@ -14,6 +14,37 @@
 <body>
 
   <div id="app">
+    <select v-model="selectCity">
+      <option selected disabled>縣市</option>
+      <option v-for="(city,index) of citys">{{city}}</option>
+    </select>
+
+    <button @click="submit()">submit</button>
+
+    <table>
+      <tr>
+        <th>{{date}}</th>
+        <th>{{zone1StartTime}}~{{zone1EndTime}}</th>
+        <th>{{zone2StartTime}}~{{zone2EndTime}}</th>
+        <th>{{zone3StartTime}}~{{zone3EndTime}}</th>
+      </tr>
+      <tr>
+        <th v-for="data of wx">{{data}}</th>
+      </tr>
+      <tr>
+        <th v-for="data of pop">{{data}}</th>
+      </tr>
+      <tr>
+        <th v-for="data of minT">{{data}}</th>
+      </tr>
+      <tr>
+        <th v-for="data of maxT">{{data}}</th>
+      </tr>
+      <tr>
+        <th v-for="data of ci">{{data}}</th>
+      </tr>
+    </table>
+
   </div>
   <script src="./index.js"></script>
 
