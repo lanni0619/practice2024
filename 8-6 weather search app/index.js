@@ -8,21 +8,13 @@ const app = createApp({
       selectNum: null,
       weather: [],
 
-      date: '',
+      zone1Data: [],
+      zone2Data: [],
+      zone3Data: [],
 
-      zone1StartTime: '',
-      zone1EndTime: '',
-
-      zone2StartTime: '',
-      zone2EndTime: '',
-
-      zone3StartTime: '',
-      zone3EndTime: '',
-      wx: ['天氣概況'],
-      pop: ['降雨機率(%)'],
-      minT: ['最低溫度(℃)'],
-      maxT: ['最高溫度(℃)'],
-      ci: ['身體感受'],
+      zone1Img: null,
+      zone2Img: null,
+      zone3Img: null,
     };
   },
   methods: {
@@ -31,7 +23,6 @@ const app = createApp({
       this.reset();
       this.findIndex();
 
-      console.log(this.selectNum);
       fetch('https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWA-2E9239E1-5A87-4EED-9E49-0EC203115339&locationName=')
         .then((response) => {
           return response.json();
@@ -40,48 +31,53 @@ const app = createApp({
           for (let element of response.records.location[this.selectNum].weatherElement) {
             this.weather.push(element.time);
           }
-
-          this.date = this.weather[0][0].startTime.slice(0, 10);
-
-          this.zone1StartTime = this.weather[0][0].startTime.slice(11, 19);
-          this.zone1EndTime = this.weather[0][0].endTime.slice(11, 19);
-          this.zone2StartTime = this.weather[0][1].startTime.slice(11, 19);
-          this.zone2EndTime = this.weather[0][1].endTime.slice(11, 19);
-          this.zone3StartTime = this.weather[0][2].startTime.slice(11, 19);
-          this.zone3EndTime = this.weather[0][2].endTime.slice(11, 19);
-
           for (index in this.weather) {
             for (let i = 0; i <= 2; i++) {
-              if (index == 0) {
-                this.wx.push(this.weather[index][i].parameter.parameterName);
+              if (i == 0) {
+                this.zone1Data.push(this.weather[index][i].parameter.parameterName);
               }
-              if (index == 1) {
-                this.pop.push(this.weather[index][i].parameter.parameterName);
+              if (i == 1) {
+                this.zone2Data.push(this.weather[index][i].parameter.parameterName);
               }
-              if (index == 2) {
-                this.minT.push(this.weather[index][i].parameter.parameterName);
-              }
-              if (index == 3) {
-                this.ci.push(this.weather[index][i].parameter.parameterName);
-              }
-              if (index == 4) {
-                this.maxT.push(this.weather[index][i].parameter.parameterName);
+              if (i == 2) {
+                this.zone3Data.push(this.weather[index][i].parameter.parameterName);
               }
             }
+          }
+          console.log(this.zone1Data[0].search("晴"));
+          if (this.zone1Data[0].search("晴") != -1 && this.zone1Data[0].search("雨") == -1) {
+            this.zone1Img = 'https://www.cwa.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/day/02.svg';
+          } else if (this.zone1Data[0].search("晴") == -1 && this.zone1Data[0].search("雨") != -1) {
+            this.zone1Img = 'https://www.cwa.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/day/11.svg'
+          } else {
+            this.zone1Img = 'https://www.cwa.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/night/06.svg';
+          }
+
+          if (this.zone2Data[0].search("晴") != -1 && this.zone2Data[0].search("雨") == -1) {
+            this.zone2Img = 'https://www.cwa.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/day/02.svg';
+          } else if (this.zone2Data[0].search("晴") == -1 && this.zone2Data[0].search("雨") != -1) {
+            this.zone2Img = 'https://www.cwa.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/day/11.svg'
+          } else {
+            this.zone2Img = 'https://www.cwa.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/night/06.svg';
+          }
+
+          if (this.zone3Data[0].search("晴") != -1 && this.zone3Data[0].search("雨") == -1) {
+            this.zone3Img = 'https://www.cwa.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/day/02.svg';
+          } else if (this.zone3Data[0].search("晴") == -1 && this.zone3Data[0].search("雨") != -1) {
+            this.zone3Img = 'https://www.cwa.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/day/11.svg'
+          } else {
+            this.zone3Img = 'https://www.cwa.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/night/06.svg';
           }
         })
         .catch(error => {
           alert('抱歉，請稍後重新嘗試。');
         })
-
     },
     reset() {
       this.weather = [];
-      this.wx = ['天氣概況'];
-      this.pop = ['降雨機率(%)'];
-      this.minT = ['最低溫度(℃)'];
-      this.maxT = ['最高溫度(℃)'];
-      this.ci = ['身體感受'];
+      this.zone1Data = [];
+      this.zone2Data = [];
+      this.zone3Data = [];
     },
     findIndex() {
       for (index in this.citys) {
